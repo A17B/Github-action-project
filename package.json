@@ -9,5 +9,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "A simple Node.js project with a console log."
+  "description": "A simple Node.js project with a console log.",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
