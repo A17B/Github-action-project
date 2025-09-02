@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  build-test:
+  build-test-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,5 +25,10 @@ jobs:
       - name: Run Test script
         run: npm test
 
-      # - name: Run start script
-      #   run: npm start
+      - name: Deploy To Vercel
+        if: github.ref == 'refs/heads/main' && success()
+        run: npx vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
