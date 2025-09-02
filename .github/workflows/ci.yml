@@ -22,5 +22,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run start script
-        run: npm start
+      - name: Run Test script
+        run: npm test
+
+      # - name: Run start script
+      #   run: npm start
